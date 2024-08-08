@@ -3,6 +3,9 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const userRoutes = require('./routes/userRoutes');
+const consultationRoutes = require('./routes/consultationRoutes');
+const recordRoutes = require('./routes/recordRoutes');
+const prescriptionRoutes = require('./routes/prescriptionRoutes');
 
 dotenv.config();
 
@@ -21,6 +24,9 @@ app.get('/', (req, res) => {
 
 // Use routes
 app.use('/api', userRoutes);
+app.use('/api', consultationRoutes);
+app.use('/api', recordRoutes);
+app.use('/api', prescriptionRoutes);
 
 // Start the server
 const PORT = process.env.PORT || 3000;
